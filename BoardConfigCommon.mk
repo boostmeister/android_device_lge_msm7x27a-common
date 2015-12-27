@@ -39,6 +39,9 @@ TARGET_CPU_VARIANT := cortex-a9
 TARGET_CPU_SMP := true
 TARGET_USE_QCOM_BIONIC_OPTIMIZATION := true
 
+# Use dlmalloc instead of jemalloc for mallocs on low-ram targets
+MALLOC_IMPL := dlmalloc
+
 TARGET_KERNEL_SOURCE := kernel/lge/msm7x27a-common
 BOARD_KERNEL_BASE := 0x00200000
 BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x1200000
