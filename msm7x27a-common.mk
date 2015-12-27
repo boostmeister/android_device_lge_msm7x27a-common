@@ -125,6 +125,14 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     lights.msm7x27a
 
+#wifi
+PRODUCT_PACKAGES += \
+    libwpa_client \
+    hostapd \
+    dhcpcd.conf \
+    wpa_supplicant \
+    wpa_supplicant.conf
+
 # Radio properties
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.telephony.ril_class=LGEQualcommUiccRIL \
