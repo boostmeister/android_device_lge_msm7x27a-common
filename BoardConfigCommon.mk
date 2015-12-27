@@ -66,11 +66,11 @@ TARGET_USES_ION := true
 TARGET_USES_QCOM_BSP := true
 TARGET_DISPLAY_USE_RETIRE_FENCE := true
 
-# Media 
-TARGET_QCOM_MEDIA_VARIANT := caf
-
 # Add QC Video Enhancements flag
 TARGET_ENABLE_QC_AV_ENHANCEMENTS := true
+
+# Enable Minikin text layout engine (will be the default soon)
+USE_MINIKIN := true
 
 # bluetooth
 BOARD_HAVE_BLUETOOTH := true
