@@ -106,16 +106,12 @@ TARGET_NO_INITLOGO := true
 
 TARGET_PROVIDES_LIBLIGHT := true
 
-BOARD_SEPOLICY_DIRS := \
-       device/lge/msm7x27a-common/sepolicy
+# SELinux
+include device/qcom/sepolicy/sepolicy.mk
 
-BOARD_SEPOLICY_UNION := \
-       device.te \
-       app.te \
-       file_contexts \
-       untrusted_app.te \
-       vold.te \
-       zygote.te
+BOARD_SEPOLICY_DIRS += \
+	device/lge/msm7x27a-common/sepolicy
+
 
 BOARD_HAS_QCOM_WLAN              := true
 BOARD_HAS_QCOM_WLAN_SDK          := true
