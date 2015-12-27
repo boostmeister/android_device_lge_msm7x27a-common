@@ -99,8 +99,8 @@ PRODUCT_PACKAGES += \
     power.msm7x27a
 
 # Camera Hal
-PRODUCT_PACKAGES += \
-    camera.msm7x27a
+#PRODUCT_PACKAGES += \
+#    camera.msm7x27a
 
 # Filesystem management tools
 PRODUCT_PACKAGES += \
@@ -113,13 +113,13 @@ PRODUCT_PACKAGES += \
     com.android.future.usb.accessory
 
 # audio 
-PRODUCT_PACKAGES += \
-    libaudioutils \
-    audio.a2dp.default \
-    audio.usb.default \
-    audio.primary.msm7x27a \
-    audio_policy.msm7x27a \
-    libaudio-resampler
+#PRODUCT_PACKAGES += \
+#    libaudioutils \
+#   audio.a2dp.default \
+#    audio.usb.default \
+#    audio.primary.msm7x27a \
+#    audio_policy.msm7x27a \
+#    libaudio-resampler
 
 # light hal
 PRODUCT_PACKAGES += \
