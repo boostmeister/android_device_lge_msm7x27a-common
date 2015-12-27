@@ -174,6 +174,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
    media.stagefright.enable-aac=true \
    media.stagefright.enable-qcp=true
 
+# Low Power Audio
+PRODUCT_PROPERTY_OVERRIDES += \
+   lpa.decode=true
+
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.extension_library=/system/lib/libqc-opt.so
 
