@@ -70,13 +70,21 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.usb.host.xml:system/etc/permissions/android.hardware.usb.host.xml \
     frameworks/native/data/etc/android.hardware.touchscreen.multitouch.jazzhand.xml:system/etc/permissions/android.hardware.touchscreen.multitouch.jazzhand.xml
 
-# display HALS
+# Packages
 PRODUCT_PACKAGES += \
-    gralloc.msm7x27a \
+    audio.primary.msm7x27a \
+    audio.a2dp.default \
+    audio.usb.default \
+    libaudioutils
+
+PRODUCT_PACKAGES += \
+    libgenlock \
     copybit.msm7x27a \
+    gralloc.msm7x27a \
     libqdMetaData \
     memtrack.msm7x27a \
-    hwcomposer.msm7x27a
+    hwcomposer.msm7x27a \
+    libtilerenderer
 
 # off-mode charging
 PRODUCT_PACKAGES += \
@@ -112,14 +120,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     com.android.future.usb.accessory
 
-# audio 
-#PRODUCT_PACKAGES += \
-#    libaudioutils \
-#   audio.a2dp.default \
-#    audio.usb.default \
-#    audio.primary.msm7x27a \
-#    audio_policy.msm7x27a \
-#    libaudio-resampler
+PRODUCT_PACKAGES += libstlport
 
 # light hal
 PRODUCT_PACKAGES += \
@@ -135,15 +136,9 @@ PRODUCT_PACKAGES += \
 
 # Radio properties
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.telephony.ril_class=LGEQualcommUiccRIL \
-    ro.telephony.default_network=0 \
-    ro.telephony.call_ring.multiple=0 \
-    telephony.lteOnGsmDevice=0 \
-    rild.libpath=/system/lib/libril-qc-qmi-1.so \
-    rild.libargs=-d/dev/smd0 \
     ril.subscription.types=NV,RUIM \
-    DEVICE_PROVISIONED=1 \
-    persist.radio.apm_sim_not_pwdn=1
+    rild.libargs=-d/dev/smd0 \
+    ro.telephony.call_ring.multiple=false
 
 # Qcom properties
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -186,6 +181,21 @@ PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.dex2oat-filter=balanced \
     dalvik.vm.dex2oat-flags=--no-watch-dog \
     dalvik.vm.image-dex2oat-filter=speed
+
+# ART properties
+ADDITIONAL_DEFAULT_PROPERTIES += \
+   dalvik.vm.dex2oat-Xms=8m \
+   dalvik.vm.dex2oat-Xmx=96m \
+   dalvik.vm.image-dex2oat-Xms=48m \
+   dalvik.vm.image-dex2oat-Xmx=48m
+
+# Allow ADB by default
+ADDITIONAL_DEFAULT_PROPERTIES += \
+   ro.secure=0 \
+   ro.adb.secure=0
+
+PRODUCT_PROPERTY_OVERRIDES += \
+   persist.sys.root_access=3
 
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 PRODUCT_MANUFACTURER := LGE

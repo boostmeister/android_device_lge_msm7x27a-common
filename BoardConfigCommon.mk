@@ -63,14 +63,18 @@ TARGET_GLOBAL_CPPFLAGS += -mfpu=neon-vfpv4 -mfloat-abi=softfp
 
 # Enable dex-preoptimization to speed up first boot sequence
 ifeq ($(HOST_OS),linux)
-  ifeq ($(TARGET_BUILD_VARIANT),userdebug)
-    ifeq ($(WITH_DEXPREOPT),)
-      WITH_DEXPREOPT := true
-    endif
-  endif
+  WITH_DEXPREOPT := true
 endif
 WITH_DEXPREOPT_PIC := true
 DONT_DEXPREOPT_PREBUILTS := true
+
+# Include an expanded selection of fonts
+EXTENDED_FONT_FOOTPRINT := true
+
+# Enable Minikin text layout engine (will be the default soon)
+USE_MINIKIN := true
+
+BLOCK_BASED_OTA := false
 
 # QCOM  display stuffs
 BOARD_USES_QCOM_HARDWARE := true
@@ -80,11 +84,14 @@ TARGET_USES_ION := true
 TARGET_USES_QCOM_BSP := true
 TARGET_DISPLAY_USE_RETIRE_FENCE := true
 
-# Add QC Video Enhancements flag
-TARGET_ENABLE_QC_AV_ENHANCEMENTS := true
+# Low RAM settings
+MALLOC_IMPL := dlmalloc
+TARGET_BOOTANIMATION_TEXTURE_CACHE := false
+TARGET_BOOTANIMATION_HALF_RES := true
 
-# Enable Minikin text layout engine (will be the default soon)
-USE_MINIKIN := true
+# RIL
+TARGET_RIL_VARIANT := caf
+BOARD_PROVIDES_LIBRIL := true
 
 # bluetooth
 BOARD_HAVE_BLUETOOTH := true

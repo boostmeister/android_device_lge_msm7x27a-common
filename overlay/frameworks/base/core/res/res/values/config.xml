@@ -89,4 +89,6 @@
         <item>"wlan0"</item>
         <item>"softap.*"</item>
     </string-array>
+
+<string translatable="false" name="config_radio_access_family">GPRS|EDGE|UMTS|HSDPA|HSUPA|HSPAP|GSM|WCDMA</string>
 </resources>
